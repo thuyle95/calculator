@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            width: 100%;
+            height: 100%;
+        }
+        div{
+            width: 100%;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    
+    <table style="width: 250px; height: 400px; text-align: center; border-collapse: collapse;">
+        <tr>
+            <td style="height: 50px; border: black;" colspan="4"><div id="result" value=''></div></td>
+        </tr>
+        <tr>
+            <td colspan="3" style="width: 75%;"><button type="button" class="btn" id="button" onclick="clean()">AC</td>
+            <td style="width: 25%;"><button style="background-color: tomato;" class="btn" value="/">/</td>
+        </tr>
+        <tr>
+            <td><button class="btn" value="7">7</button></td>
+            <td><button class="btn" value="8">8</button></td>
+            <td><button class="btn" value="9">9</button></td>
+            <td><button style="background-color: tomato;" class="btn" value="*">X</button> </td>
+        </tr>
+        <tr>
+            <td><button class="btn" value="4">4</button></td>
+            <td><button class="btn" value="5">5</button></td>
+            <td><button class="btn" value="6">6</button></td>
+            <td><button style="background-color: tomato;" class="btn" value="-">-</button></td>
+        </tr>
+        <tr>
+            <td><button class="btn" value="1">1</button></td>
+            <td><button class="btn" value="2">2</button></td>
+            <td><button class="btn" value="3">3</button></td>
+            <td><button style="background-color: tomato;" class="btn" value="+">+</button></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button class="btn" value="0">0</button></td>
+            <td><button class="btn" value=".">.</button></td>
+            <td><button style="background-color: tomato;" class="btn" onclick=equal()>=</td>
+        </tr>
+    </table>
+    <script>
+        const numbers = document.getElementsByClassName('btn');
+        const result = document.getElementById('result');
+        for (let number of numbers) {
+            number.addEventListener('click', function() {
+                result.innerHTML += this.value;
+            });
+        }
+        function equal() {
+            let res = result.innerHTML;
+            let output = eval(res);
+            result.innerHTML = output;
+        }
+        function clean() {
+            result.innerHTML='';
+        }
+    </script>
+</body>
+</html>
